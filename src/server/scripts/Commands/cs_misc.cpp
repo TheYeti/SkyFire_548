@@ -2486,17 +2486,20 @@ public:
     static bool HandleXPRate(ChatHandler* handler, char const* args)
     {
         Player* player = handler->GetSession()->GetPlayer();
+        if (!*args)
+            return false;
         if (player->isPossessing())
             return false;
-        if (!isdigit((int)args[0]))
+        std::string argstr = (char*)args;
+        if (!isdigit(stoi(argstr)))
             return false;
-        int newrate = (int)args[0];
+        int newrate = stoi(argstr);
         if (newrate > sWorld->getRate(Rates::RATE_XP_KILL))
             newrate = sWorld->getRate(Rates::RATE_XP_KILL);
         else if (newrate < 0)
             newrate = 0;
         else
-            newrate = (int)args[0];
+            newrate = stoi(argstr);
         CharacterDatabase.DirectPExecute("INSERT INTO character_xprate VALUES('%i', '%i')", handler->GetSession()->GetPlayer()->GetGUID(), newrate);
         return true;
     }
