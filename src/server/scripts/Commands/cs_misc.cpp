@@ -2497,7 +2497,7 @@ public:
             newrate = 0;
         else
             newrate = (int)args[0];
-        CharacterDatabase.DirectPExecute("INSERT INTO character_xprate VALUES('%i', '%i'", handler->GetSession()->GetPlayer()->GetGUID(), newrate);
+        CharacterDatabase.DirectPExecute("INSERT INTO character_xprate VALUES('%i', '%i')", handler->GetSession()->GetPlayer()->GetGUID(), newrate);
         return true;
     }
 };
