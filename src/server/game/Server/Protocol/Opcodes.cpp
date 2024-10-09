@@ -467,6 +467,7 @@ void OpcodeTable::InitializeClientTable()
     DEFINE_OPCODE_HANDLER(CMSG_VOID_SWAP_ITEM,                               0x0655, STATUS_LOGGEDIN,  PROCESS_INPLACE,      &WorldSession::HandleVoidSwapItem                        ); // 5.4.8 18414
     DEFINE_OPCODE_HANDLER(CMSG_WHO,                                          0x18A3, STATUS_LOGGEDIN,  PROCESS_THREADUNSAFE, &WorldSession::HandleWhoOpcode                           ); // 5.4.8 18414
     DEFINE_OPCODE_HANDLER(CMSG_WORLD_STATE_UI_TIMER_UPDATE,                  0x15AB, STATUS_LOGGEDIN,  PROCESS_INPLACE,      &WorldSession::HandleWorldStateUITimerUpdate             ); // 5.4.8 18414
+    //DEFINE_OPCODE_HANDLER(CMSG_XPRATE,                                       0x44E,  STATUS_LOGGEDIN,  PROCESS_INPLACE,      &WorldSession::HandleXPRate                              );
 
     // ----- MSG OPCODES -----
     DEFINE_OPCODE_HANDLER(MSG_MOVE_FALL_LAND,                                0x08FA, STATUS_LOGGEDIN,  PROCESS_THREADSAFE,   &WorldSession::HandleMovementOpcodes                     ); // 5.4.8 18414

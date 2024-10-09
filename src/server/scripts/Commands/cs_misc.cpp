@@ -81,6 +81,7 @@ public:
             { "unpossess",        rbac::RBAC_PERM_COMMAND_UNPOSSESS,        false, &HandleUnPossessCommand,        "", },
             { "unstuck",          rbac::RBAC_PERM_COMMAND_UNSTUCK,           true, &HandleUnstuckCommand,          "", },
             { "wchange",          rbac::RBAC_PERM_COMMAND_WCHANGE,          false, &HandleChangeWeather,           "", },
+            { "xprate",           rbac::RBAC_PERM_COMMAND_XPRATE,            true, &HandleXPRate,                  "", },
         };
         return commandTable;
     }
@@ -2480,6 +2481,23 @@ public:
             return false;
 
         player->StopCastingBindSight();
+        return true;
+    }
+    static bool HandleXPRate(ChatHandler* handler, char const* args)
+    {
+        Player* player = handler->GetSession()->GetPlayer();
+        if (player->isPossessing())
+            return false;
+        if (!isdigit((int)args[0]))
+            return false;
+        int newrate = (int)args[0];
+        if (newrate > sWorld->getRate(Rates::RATE_XP_KILL))
+            newrate = sWorld->getRate(Rates::RATE_XP_KILL);
+        else if (newrate < 0)
+            newrate = 0;
+        else
+            newrate = (int)args[0];
+        CharacterDatabase.DirectPExecute("INSERT INTO character_xprate VALUES('%i', '%i'", handler->GetSession()->GetPlayer()->GetGUID(), newrate);
         return true;
     }
 };

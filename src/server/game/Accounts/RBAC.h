@@ -44,7 +44,7 @@ namespace rbac
         RBAC_PERM_JOIN_RANDOM_BG = 4,
         RBAC_PERM_JOIN_ARENAS = 5,
         RBAC_PERM_JOIN_DUNGEON_FINDER = 6,
-        //  7 - reuse
+        RBAC_PERM_COMMAND_XPRATE = 7, //  7 - reuse
         //  8 - reuse
         //  9 - reuse
         // 10 - reuse
