@@ -1267,6 +1267,7 @@ enum SkyFireStrings
         LANG_BG_BFG_A_NEAR_VICTORY = 12028,
         LANG_BG_BFG_H_NEAR_VICTORY = 12029,
 
-        LANG_CHAR_XPRATE = 0,
+        // Custom strings
+        LANG_CHAR_XPRATE = 185,
 };
 #endif
