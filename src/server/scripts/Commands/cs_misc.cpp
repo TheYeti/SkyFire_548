@@ -2488,8 +2488,8 @@ public:
         if (!*args) {
             if (QueryResult result = CharacterDatabase.Query("SELECT xprate FROM character_xprate")) {
                 uint32 currate = result->Fetch()->GetUInt32();
-                handler->PSendSysMessage(LANG_CHAR_XPRATE, currate);
-                handler->SetSentErrorMessage(true);
+                //handler->PSendSysMessage(LANG_CHAR_XPRATE, currate);
+                //handler->SetSentErrorMessage(true);
                 return true;
             }
             else
