@@ -7025,9 +7025,22 @@ void Player::CheckAreaExploreAndOutdoor()
             {
                 int32 diff = int32(getLevel()) - areaEntry->m_ExplorationLevel;
                 uint32 XP = 0;
+                uint32 xprate = sWorld->getRate(Rates::RATE_XP_EXPLORE);
+                uint32 newrate = 0;
+                if (QueryResult result = CharacterDatabase.Query("SELECT xprate FROM character_xprate")) {
+                    newrate = result->Fetch()->GetUInt32();
+                    if (newrate > xprate)
+                        newrate = xprate;
+                    else if (newrate < 0)
+                        newrate = 0;
+                    else
+                        newrate = xprate;
+                }
+                else
+                    newrate = xprate;
                 if (diff < -5)
                 {
-                    XP = uint32(sObjectMgr->GetBaseXP(getLevel() + 5) * sWorld->getRate(Rates::RATE_XP_EXPLORE));
+                    XP = uint32(sObjectMgr->GetBaseXP(getLevel() + 5) * newrate);
                 }
                 else if (diff > 5)
                 {
@@ -7035,11 +7048,11 @@ void Player::CheckAreaExploreAndOutdoor()
                     if (exploration_percent < 0)
                         exploration_percent = 0;
 
-                    XP = uint32(sObjectMgr->GetBaseXP(areaEntry->m_ExplorationLevel) * exploration_percent / 100 * sWorld->getRate(Rates::RATE_XP_EXPLORE));
+                    XP = uint32(sObjectMgr->GetBaseXP(areaEntry->m_ExplorationLevel) * exploration_percent / 100 * newrate);
                 }
                 else
                 {
-                    XP = uint32(sObjectMgr->GetBaseXP(areaEntry->m_ExplorationLevel) * sWorld->getRate(Rates::RATE_XP_EXPLORE));
+                    XP = uint32(sObjectMgr->GetBaseXP(areaEntry->m_ExplorationLevel) * newrate);
                 }
 
                 GiveXP(XP, NULL);
@@ -16022,7 +16035,18 @@ void Player::RewardQuest(Quest const* quest, uint32 reward, Object* questGiver, 
     bool rewarded = (m_RewardedQuests.find(quest_id) != m_RewardedQuests.end());
 
     // Not give XP in case already completed once repeatable quest
-    uint32 XP = rewarded ? 0 : uint32(quest->XPValue(this) * sWorld->getRate(Rates::RATE_XP_QUEST));
+    uint32 xpreward = 0;
+    if (QueryResult result = CharacterDatabase.Query("SELECT xprate FROM character_xprate"))
+        xpreward = result->Fetch()->GetUInt32();
+    else
+        xpreward = sWorld->getRate(Rates::RATE_XP_QUEST);
+    if (xpreward > sWorld->getRate(Rates::RATE_XP_QUEST))
+        xpreward = sWorld->getRate(Rates::RATE_XP_QUEST);
+    else if (xpreward < 0)
+        xpreward = 0;
+    else
+        xpreward = xpreward;
+    uint32 XP = rewarded ? 0 : xpreward;
 
     // handle SPELL_AURA_MOD_XP_QUEST_PCT auras
     Unit::AuraEffectList const& ModXPPctAuras = GetAuraEffectsByType(SPELL_AURA_MOD_XP_QUEST_PCT);
