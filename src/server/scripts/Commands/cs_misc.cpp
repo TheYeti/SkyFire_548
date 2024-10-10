@@ -81,7 +81,7 @@ public:
             { "unpossess",        rbac::RBAC_PERM_COMMAND_UNPOSSESS,        false, &HandleUnPossessCommand,        "", },
             { "unstuck",          rbac::RBAC_PERM_COMMAND_UNSTUCK,           true, &HandleUnstuckCommand,          "", },
             { "wchange",          rbac::RBAC_PERM_COMMAND_WCHANGE,          false, &HandleChangeWeather,           "", },
-            { "xprate",           rbac::RBAC_PERM_COMMAND_XPRATE,            true, &HandleXPRate,                  "", },
+            { "xprate",           rbac::RBAC_PERM_COMMAND_XPRATE,            false, &HandleXPRate,                  "", },
         };
         return commandTable;
     }
@@ -2491,9 +2491,9 @@ public:
         if (player->isPossessing())
             return false;
         std::string argstr = (char*)args;
-        if (!isdigit(stoi(argstr)))
-            return false;
         int newrate = stoi(argstr);
+        if (!isdigit(newrate))
+            return false;
         if (newrate > sWorld->getRate(Rates::RATE_XP_KILL))
             newrate = sWorld->getRate(Rates::RATE_XP_KILL);
         else if (newrate < 0)

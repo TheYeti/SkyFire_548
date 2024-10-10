@@ -10,6 +10,7 @@
 #include "ScriptMgr.h"
 #include "SharedDefines.h"
 #include "World.h"
+#include <string>
 
 namespace Skyfire
 {
@@ -175,10 +176,11 @@ namespace Skyfire
                 // FINDME - Experience is given here.  Comes from World.cpp where it pulls from config
                 // Player has set a custom xprate from 0-RATE_XP_KILL
                 if (QueryResult result = CharacterDatabase.Query("SELECT xprate FROM character_xprate")) {
-                    if ((int)result == 0)
+                    float xprate = result->Fetch()->GetFloat();
+                    if (xprate == 0)
                         gain = 0;
                     else 
-                        gain = uint32(gain * (int)result);
+                        gain = uint32(gain * xprate);
                 }
                 else
                     gain = uint32(gain * sWorld->getRate(Rates::RATE_XP_KILL));
