@@ -6225,13 +6225,24 @@ bool Player::UpdateCraftSkill(uint32 spellid)
                     learnSpell(discoveredSpell, false);
             }
 
-            uint32 craft_skill_gain = sWorld->getIntConfig(WorldIntConfigs::CONFIG_SKILL_GAIN_CRAFTING);
+            uint32 currate = sWorld->getIntConfig(WorldIntConfigs::CONFIG_SKILL_GAIN_CRAFTING);
+            uint32 newrate = 0;
+            if (QueryResult result = CharacterDatabase.Query("SELECT xprate FROM character_xprate"))
+            {
+                newrate = result->Fetch()->GetUInt32();
+                if (newrate > currate)
+                    newrate = currate;
+                if (newrate < 0)
+                    newrate = 0;
+            }
+            else
+                newrate = currate;
 
             return UpdateSkillPro(_spell_idx->second->skillId, SkillGainChance(SkillValue,
                 _spell_idx->second->max_value,
                 (_spell_idx->second->max_value + _spell_idx->second->min_value) / 2,
                 _spell_idx->second->min_value),
-                craft_skill_gain);
+                newrate);
         }
     }
     return false;
@@ -6242,24 +6253,35 @@ bool Player::UpdateGatherSkill(uint32 SkillId, uint32 SkillValue, uint32 RedLeve
     SF_LOG_DEBUG("entities.player.skills", "UpdateGatherSkill(SkillId %d SkillLevel %d RedLevel %d)", SkillId, SkillValue, RedLevel);
 
     uint32 gathering_skill_gain = sWorld->getIntConfig(WorldIntConfigs::CONFIG_SKILL_GAIN_GATHERING);
+    uint32 newrate = 0;
 
+    if (QueryResult result = CharacterDatabase.Query("SELECT xprate FROM character_xprate"))
+    {
+        newrate = result->Fetch()->GetUInt32();
+        if (newrate > gathering_skill_gain)
+            newrate = gathering_skill_gain;
+        if (newrate < 0)
+            newrate = 0;
+    }
+    else
+        newrate = gathering_skill_gain;
     // For skinning and Mining chance decrease with level. 1-74 - no decrease, 75-149 - 2 times, 225-299 - 8 times
     switch (SkillId)
     {
         case SKILL_HERBALISM:
         case SKILL_JEWELCRAFTING:
         case SKILL_INSCRIPTION:
-            return UpdateSkillPro(SkillId, SkillGainChance(SkillValue, RedLevel + 100, RedLevel + 50, RedLevel + 25) * Multiplicator, gathering_skill_gain);
+            return UpdateSkillPro(SkillId, SkillGainChance(SkillValue, RedLevel + 100, RedLevel + 50, RedLevel + 25) * Multiplicator, newrate);
         case SKILL_SKINNING:
             if (sWorld->getIntConfig(WorldIntConfigs::CONFIG_SKILL_CHANCE_SKINNING_STEPS) == 0)
-                return UpdateSkillPro(SkillId, SkillGainChance(SkillValue, RedLevel + 100, RedLevel + 50, RedLevel + 25) * Multiplicator, gathering_skill_gain);
+                return UpdateSkillPro(SkillId, SkillGainChance(SkillValue, RedLevel + 100, RedLevel + 50, RedLevel + 25) * Multiplicator, newrate);
             else
-                return UpdateSkillPro(SkillId, (SkillGainChance(SkillValue, RedLevel + 100, RedLevel + 50, RedLevel + 25) * Multiplicator) >> (SkillValue / sWorld->getIntConfig(WorldIntConfigs::CONFIG_SKILL_CHANCE_SKINNING_STEPS)), gathering_skill_gain);
+                return UpdateSkillPro(SkillId, (SkillGainChance(SkillValue, RedLevel + 100, RedLevel + 50, RedLevel + 25) * Multiplicator) >> (SkillValue / sWorld->getIntConfig(WorldIntConfigs::CONFIG_SKILL_CHANCE_SKINNING_STEPS)), newrate);
         case SKILL_MINING:
             if (sWorld->getIntConfig(WorldIntConfigs::CONFIG_SKILL_CHANCE_MINING_STEPS) == 0)
-                return UpdateSkillPro(SkillId, SkillGainChance(SkillValue, RedLevel + 100, RedLevel + 50, RedLevel + 25) * Multiplicator, gathering_skill_gain);
+                return UpdateSkillPro(SkillId, SkillGainChance(SkillValue, RedLevel + 100, RedLevel + 50, RedLevel + 25) * Multiplicator, newrate);
             else
-                return UpdateSkillPro(SkillId, (SkillGainChance(SkillValue, RedLevel + 100, RedLevel + 50, RedLevel + 25) * Multiplicator) >> (SkillValue / sWorld->getIntConfig(WorldIntConfigs::CONFIG_SKILL_CHANCE_MINING_STEPS)), gathering_skill_gain);
+                return UpdateSkillPro(SkillId, (SkillGainChance(SkillValue, RedLevel + 100, RedLevel + 50, RedLevel + 25) * Multiplicator) >> (SkillValue / sWorld->getIntConfig(WorldIntConfigs::CONFIG_SKILL_CHANCE_MINING_STEPS)), newrate);
     }
     return false;
 }
