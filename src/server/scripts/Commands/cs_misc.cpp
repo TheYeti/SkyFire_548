@@ -2500,7 +2500,13 @@ public:
             newrate = 0;
         else
             newrate = stoi(argstr);
-        CharacterDatabase.DirectPExecute("INSERT INTO character_xprate VALUES('%i', '%i')", handler->GetSession()->GetPlayer()->GetGUID(), newrate);
+        PreparedStatement* stmt = CharacterDatabase.GetPreparedStatement(CHAR_UPDATE_XPRATE);
+
+        stmt->setUInt64(0, player->GetGUID());
+        stmt->setUInt32(1, newrate);
+        stmt->setUInt32(2, newrate);
+
+        CharacterDatabase.Execute(stmt);
         return true;
     }
 };
