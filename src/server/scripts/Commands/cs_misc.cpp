@@ -81,7 +81,7 @@ public:
             { "unpossess",        rbac::RBAC_PERM_COMMAND_UNPOSSESS,        false, &HandleUnPossessCommand,        "", },
             { "unstuck",          rbac::RBAC_PERM_COMMAND_UNSTUCK,           true, &HandleUnstuckCommand,          "", },
             { "wchange",          rbac::RBAC_PERM_COMMAND_WCHANGE,          false, &HandleChangeWeather,           "", },
-            { "xprate",           rbac::RBAC_PERM_COMMAND_XPRATE,            false, &HandleXPRate,                  "", },
+            { "xprate",           rbac::RBAC_PERM_COMMAND_XPRATE,           false, &HandleXPRate,                  "", },
         };
         return commandTable;
     }
@@ -2485,13 +2485,22 @@ public:
     }
     static bool HandleXPRate(ChatHandler* handler, char const* args)
     {
+        if (!*args) {
+            if (QueryResult result = CharacterDatabase.Query("SELECT xprate FROM character_xprate")) {
+                std::string currate = result->Fetch()->GetCString();
+                handler->PSendSysMessage(LANG_CHAR_XPRATE, currate);
+                return true;
+            }
+            
+        }
+        
         Player* player = handler->GetSession()->GetPlayer();
-        if (!*args)
-            return false;
         if (player->isPossessing())
             return false;
+
         std::string argstr = (char*)args;
         int newrate = stoi(argstr);
+
         if (!isdigit(newrate))
             return false;
         if (newrate > sWorld->getRate(Rates::RATE_XP_KILL))
@@ -2500,13 +2509,13 @@ public:
             newrate = 0;
         else
             newrate = stoi(argstr);
-        PreparedStatement* stmt = CharacterDatabase.GetPreparedStatement(CHAR_UPDATE_XPRATE);
 
+        PreparedStatement* stmt = CharacterDatabase.GetPreparedStatement(CHAR_UPDATE_XPRATE);
         stmt->setUInt64(0, player->GetGUID());
         stmt->setUInt32(1, newrate);
         stmt->setUInt32(2, newrate);
-
         CharacterDatabase.Execute(stmt);
+
         return true;
     }
 };

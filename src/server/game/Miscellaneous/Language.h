@@ -1168,103 +1168,105 @@ enum SkyFireStrings
     LANG_OPVP_ZM_LOSE_WEST_A = 10020,
     LANG_OPVP_ZM_LOSE_EAST_H = 10021,
     LANG_OPVP_ZM_LOSE_EAST_A = 10022,
-    LANG_OPVP_ZM_LOSE_GY_H = 10023,
-    LANG_OPVP_ZM_LOSE_GY_A = 10024,
-    // opvp na
-    LANG_OPVP_NA_CAPTURE_H = 10025,
-    LANG_OPVP_NA_CAPTURE_A = 10026,
-    LANG_OPVP_NA_LOSE_H = 10027,
-    LANG_OPVP_NA_LOSE_A = 10028,
-    // opvp tf
-    LANG_OPVP_TF_CAPTURE_H = 10029,
-    LANG_OPVP_TF_CAPTURE_A = 10030,
-    LANG_OPVP_TF_LOSE_H = 10031,
-    LANG_OPVP_TF_LOSE_A = 10032,
-    // opvp ep
-    LANG_OPVP_EP_CAPTURE_NPT_H = 10033,
-    LANG_OPVP_EP_CAPTURE_NPT_A = 10034,
-    LANG_OPVP_EP_CAPTURE_EWT_H = 10035,
-    LANG_OPVP_EP_CAPTURE_EWT_A = 10036,
-    LANG_OPVP_EP_CAPTURE_CGT_H = 10037,
-    LANG_OPVP_EP_CAPTURE_CGT_A = 10038,
-    LANG_OPVP_EP_CAPTURE_PWT_H = 10039,
-    LANG_OPVP_EP_CAPTURE_PWT_A = 10040,
-    LANG_OPVP_EP_LOSE_NPT_H = 10041,
-    LANG_OPVP_EP_LOSE_NPT_A = 10042,
-    LANG_OPVP_EP_LOSE_EWT_H = 10043,
-    LANG_OPVP_EP_LOSE_EWT_A = 10044,
-    LANG_OPVP_EP_LOSE_CGT_H = 10045,
-    LANG_OPVP_EP_LOSE_CGT_A = 10046,
-    LANG_OPVP_EP_LOSE_PWT_H = 10047,
-    LANG_OPVP_EP_LOSE_PWT_A = 10048,
-    // opvp si
-    LANG_OPVP_SI_CAPTURE_H = 10049,
-    LANG_OPVP_SI_CAPTURE_A = 10050,
-    // opvp gossips
-    LANG_OPVP_EP_FLIGHT_NPT = 10051,
-    LANG_OPVP_EP_FLIGHT_EWT = 10052,
-    LANG_OPVP_EP_FLIGHT_CGT = 10053,
-    LANG_OPVP_ZM_GOSSIP_ALLIANCE = 10054,
-    LANG_OPVP_ZM_GOSSIP_HORDE = 10055,
+        LANG_OPVP_ZM_LOSE_GY_H = 10023,
+        LANG_OPVP_ZM_LOSE_GY_A = 10024,
+        // opvp na
+        LANG_OPVP_NA_CAPTURE_H = 10025,
+        LANG_OPVP_NA_CAPTURE_A = 10026,
+        LANG_OPVP_NA_LOSE_H = 10027,
+        LANG_OPVP_NA_LOSE_A = 10028,
+        // opvp tf
+        LANG_OPVP_TF_CAPTURE_H = 10029,
+        LANG_OPVP_TF_CAPTURE_A = 10030,
+        LANG_OPVP_TF_LOSE_H = 10031,
+        LANG_OPVP_TF_LOSE_A = 10032,
+        // opvp ep
+        LANG_OPVP_EP_CAPTURE_NPT_H = 10033,
+        LANG_OPVP_EP_CAPTURE_NPT_A = 10034,
+        LANG_OPVP_EP_CAPTURE_EWT_H = 10035,
+        LANG_OPVP_EP_CAPTURE_EWT_A = 10036,
+        LANG_OPVP_EP_CAPTURE_CGT_H = 10037,
+        LANG_OPVP_EP_CAPTURE_CGT_A = 10038,
+        LANG_OPVP_EP_CAPTURE_PWT_H = 10039,
+        LANG_OPVP_EP_CAPTURE_PWT_A = 10040,
+        LANG_OPVP_EP_LOSE_NPT_H = 10041,
+        LANG_OPVP_EP_LOSE_NPT_A = 10042,
+        LANG_OPVP_EP_LOSE_EWT_H = 10043,
+        LANG_OPVP_EP_LOSE_EWT_A = 10044,
+        LANG_OPVP_EP_LOSE_CGT_H = 10045,
+        LANG_OPVP_EP_LOSE_CGT_A = 10046,
+        LANG_OPVP_EP_LOSE_PWT_H = 10047,
+        LANG_OPVP_EP_LOSE_PWT_A = 10048,
+        // opvp si
+        LANG_OPVP_SI_CAPTURE_H = 10049,
+        LANG_OPVP_SI_CAPTURE_A = 10050,
+        // opvp gossips
+        LANG_OPVP_EP_FLIGHT_NPT = 10051,
+        LANG_OPVP_EP_FLIGHT_EWT = 10052,
+        LANG_OPVP_EP_FLIGHT_CGT = 10053,
+        LANG_OPVP_ZM_GOSSIP_ALLIANCE = 10054,
+        LANG_OPVP_ZM_GOSSIP_HORDE = 10055,
 
-    LANG_BG_SA_START_TWO_MINUTES = 10056,
-    LANG_BG_SA_START_ONE_MINUTE = 10057,
-    LANG_BG_SA_START_HALF_MINUTE = 10058,
-    LANG_BG_SA_HAS_BEGUN = 10059,
-    LANG_BG_SA_IS_UNDER_ATTACK = 10060, //The %s is under attack!
-    LANG_BG_SA_WAS_DESTROYED = 10061, //The %s was destroyed!
-    LANG_BG_SA_ROUND_ONE_END = 10062, //Round 1 - finished!
-    LANG_BG_SA_ALLIANCE_CAPTURED_RELIC = 10063, //The Alliance captured the titan portal!
-    LANG_BG_SA_HORDE_CAPTURED_RELIC = 10064, //The Horde captured the titan portal!
-    LANG_BG_SA_ROUND_TWO_ONE_MINUTE = 10065, //Round 2 of the Battle for the Strand of the Ancients begins in 1 minute.
-    LANG_BG_SA_ROUND_TWO_START_HALF_MINUTE = 10066, //Round 2 begins in 30 seconds. Prepare yourselves!
-    LANG_BG_SA_CHAMBER_BREACHED = 10067, //The chamber has been breached! The titan relic is vulnerable!
-    LANG_BG_SA_A_GY_SOUTH = 10068, //The Alliance captured the South Graveyard!
-    LANG_BG_SA_A_GY_WEST = 10069, //The Alliance captured the West Graveyard!
-    LANG_BG_SA_A_GY_EAST = 10070, //The Alliance captured the East Graveyard!
-    LANG_BG_SA_H_GY_SOUTH = 10071, //The Horde captured the South Graveyard!
-    LANG_BG_SA_H_GY_WEST = 10072, //The Horde captured the West Graveyard!
-    LANG_BG_SA_H_GY_EAST = 10073, //The Horde captured the East Graveyard!
+        LANG_BG_SA_START_TWO_MINUTES = 10056,
+        LANG_BG_SA_START_ONE_MINUTE = 10057,
+        LANG_BG_SA_START_HALF_MINUTE = 10058,
+        LANG_BG_SA_HAS_BEGUN = 10059,
+        LANG_BG_SA_IS_UNDER_ATTACK = 10060, //The %s is under attack!
+        LANG_BG_SA_WAS_DESTROYED = 10061, //The %s was destroyed!
+        LANG_BG_SA_ROUND_ONE_END = 10062, //Round 1 - finished!
+        LANG_BG_SA_ALLIANCE_CAPTURED_RELIC = 10063, //The Alliance captured the titan portal!
+        LANG_BG_SA_HORDE_CAPTURED_RELIC = 10064, //The Horde captured the titan portal!
+        LANG_BG_SA_ROUND_TWO_ONE_MINUTE = 10065, //Round 2 of the Battle for the Strand of the Ancients begins in 1 minute.
+        LANG_BG_SA_ROUND_TWO_START_HALF_MINUTE = 10066, //Round 2 begins in 30 seconds. Prepare yourselves!
+        LANG_BG_SA_CHAMBER_BREACHED = 10067, //The chamber has been breached! The titan relic is vulnerable!
+        LANG_BG_SA_A_GY_SOUTH = 10068, //The Alliance captured the South Graveyard!
+        LANG_BG_SA_A_GY_WEST = 10069, //The Alliance captured the West Graveyard!
+        LANG_BG_SA_A_GY_EAST = 10070, //The Alliance captured the East Graveyard!
+        LANG_BG_SA_H_GY_SOUTH = 10071, //The Horde captured the South Graveyard!
+        LANG_BG_SA_H_GY_WEST = 10072, //The Horde captured the West Graveyard!
+        LANG_BG_SA_H_GY_EAST = 10073, //The Horde captured the East Graveyard!
 
-    // Use for custom patches             11000-11999
-    LANG_AUTO_BROADCAST = 11000,
-    LANG_INVALID_REALMID = 11001,
+        // Use for custom patches             11000-11999
+        LANG_AUTO_BROADCAST = 11000,
+        LANG_INVALID_REALMID = 11001,
 
-    // NOT RESERVED IDS                   12015-1999999999
-    LANG_BG_TP_START_TWO_MINUTES = 12000,
-    LANG_BG_TP_START_ONE_MINUTE = 12001,
-    LANG_BG_TP_START_HALF_MINUTE = 12002,
-    LANG_BG_TP_HAS_BEGUN = 12003,
-    LANG_BG_TP_CAPTURED_HF = 12004,
-    LANG_BG_TP_CAPTURED_AF = 12005,
-    LANG_BG_TP_DROPPED_HF = 12006,
-    LANG_BG_TP_DROPPED_AF = 12007,
-    LANG_BG_TP_RETURNED_AF = 12008,
-    LANG_BG_TP_RETURNED_HF = 12009,
-    LANG_BG_TP_PICKEDUP_HF = 12010,
-    LANG_BG_TP_PICKEDUP_AF = 12011,
-    LANG_BG_TP_F_PLACED = 12012,
-    LANG_BG_TP_ALLIANCE_FLAG_RESPAWNED = 12013,
-    LANG_BG_TP_HORDE_FLAG_RESPAWNED = 12014,
-    // `db_script_string` table index     2000000000-2000009999 (MIN_DB_SCRIPT_STRING_ID-MAX_DB_SCRIPT_STRING_ID)
-    // For other tables maybe             2000010000-2147483647 (max index)
+        // NOT RESERVED IDS                   12015-1999999999
+        LANG_BG_TP_START_TWO_MINUTES = 12000,
+        LANG_BG_TP_START_ONE_MINUTE = 12001,
+        LANG_BG_TP_START_HALF_MINUTE = 12002,
+        LANG_BG_TP_HAS_BEGUN = 12003,
+        LANG_BG_TP_CAPTURED_HF = 12004,
+        LANG_BG_TP_CAPTURED_AF = 12005,
+        LANG_BG_TP_DROPPED_HF = 12006,
+        LANG_BG_TP_DROPPED_AF = 12007,
+        LANG_BG_TP_RETURNED_AF = 12008,
+        LANG_BG_TP_RETURNED_HF = 12009,
+        LANG_BG_TP_PICKEDUP_HF = 12010,
+        LANG_BG_TP_PICKEDUP_AF = 12011,
+        LANG_BG_TP_F_PLACED = 12012,
+        LANG_BG_TP_ALLIANCE_FLAG_RESPAWNED = 12013,
+        LANG_BG_TP_HORDE_FLAG_RESPAWNED = 12014,
+        // `db_script_string` table index     2000000000-2000009999 (MIN_DB_SCRIPT_STRING_ID-MAX_DB_SCRIPT_STRING_ID)
+        // For other tables maybe             2000010000-2147483647 (max index)
 
-    // Battle For Gilneas
-    LANG_BG_BFG_START_TWO_MINUTES = 12015,
-    LANG_BG_BFG_START_ONE_MINUTE = 12016,
-    LANG_BG_BFG_START_HALF_MINUTE = 12017,
-    LANG_BG_BFG_HAS_BEGUN = 12018,
+        // Battle For Gilneas
+        LANG_BG_BFG_START_TWO_MINUTES = 12015,
+        LANG_BG_BFG_START_ONE_MINUTE = 12016,
+        LANG_BG_BFG_START_HALF_MINUTE = 12017,
+        LANG_BG_BFG_HAS_BEGUN = 12018,
 
-    LANG_BG_BFG_ALLY = 12019,
-    LANG_BG_BFG_HORDE = 12020,
-    LANG_BG_BFG_NODE_LIGHTHOUSE = 12021,
-    LANG_BG_BFG_NODE_WATERWORKS = 12022,
-    LANG_BG_BFG_NODE_MINE = 12023,
-    LANG_BG_BFG_NODE_TAKEN = 12024,
-    LANG_BG_BFG_NODE_DEFENDED = 12025,
-    LANG_BG_BFG_NODE_ASSAULTED = 12026,
-    LANG_BG_BFG_NODE_CLAIMED = 12027,
-    LANG_BG_BFG_A_NEAR_VICTORY = 12028,
-    LANG_BG_BFG_H_NEAR_VICTORY = 12029,
+        LANG_BG_BFG_ALLY = 12019,
+        LANG_BG_BFG_HORDE = 12020,
+        LANG_BG_BFG_NODE_LIGHTHOUSE = 12021,
+        LANG_BG_BFG_NODE_WATERWORKS = 12022,
+        LANG_BG_BFG_NODE_MINE = 12023,
+        LANG_BG_BFG_NODE_TAKEN = 12024,
+        LANG_BG_BFG_NODE_DEFENDED = 12025,
+        LANG_BG_BFG_NODE_ASSAULTED = 12026,
+        LANG_BG_BFG_NODE_CLAIMED = 12027,
+        LANG_BG_BFG_A_NEAR_VICTORY = 12028,
+        LANG_BG_BFG_H_NEAR_VICTORY = 12029,
+
+        LANG_CHAR_XPRATE = 0,
 };
 #endif
