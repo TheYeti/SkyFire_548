@@ -1,4 +1,4 @@
-
+*.vcxproj*
 build*/
 Win32*/
 x64*/
