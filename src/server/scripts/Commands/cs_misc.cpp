@@ -2491,7 +2491,8 @@ public:
                 handler->PSendSysMessage(LANG_CHAR_XPRATE, currate);
                 return true;
             }
-            
+            else
+                return false;
         }
         
         Player* player = handler->GetSession()->GetPlayer();
