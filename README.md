@@ -1,6 +1,6 @@
-# ![logo](https://abload.de/img/15_14_skyfire_logoqyj68.png)
+# ![logo](https://www.gravatar.com/avatar/7c1cb9b8b55f175b59b7c8de82847d8a?default=identicon&size=256)
 
-[![CodeFactor](https://www.codefactor.io/repository/github/projectskyfire/skyfire_548/badge)](https://www.codefactor.io/repository/github/projectskyfire/skyfire_548)
+[![CodeFactor](https://www.codefactor.io/repository/github/theyeti/skyfire_548/badge/dev)](https://www.codefactor.io/repository/github/theyeti/skyfire_548/overview/dev)
 [![Codacy Badge](https://app.codacy.com/project/badge/Grade/57a11392c3ed42dcae439669e893565f)](https://app.codacy.com/gh/ProjectSkyfire/SkyFire_548/dashboard?utm_source=gh&utm_medium=referral&utm_content=&utm_campaign=Badge_grade)
 
 ## Project Information
