@@ -2496,12 +2496,9 @@ public:
         }
         
         Player* player = handler->GetSession()->GetPlayer();
-
         std::string argstr = (char*)args;
         int newrate = stoi(argstr);
 
-        if (!isdigit(newrate))
-            return false;
         if (newrate > sWorld->getRate(Rates::RATE_XP_KILL))
             newrate = sWorld->getRate(Rates::RATE_XP_KILL);
         else if (newrate < 0)
