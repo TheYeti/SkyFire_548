@@ -176,7 +176,7 @@ namespace Skyfire
                 // FINDME - Experience is given here.  Comes from World.cpp where it pulls from config
                 // Player has set a custom xprate from 0-RATE_XP_KILL
                 if (QueryResult result = CharacterDatabase.Query("SELECT xprate FROM character_xprate")) {
-                    float xprate = result->Fetch()->GetFloat();
+                    uint32 xprate = result->Fetch()->GetUInt32();
                     if (xprate == 0)
                         gain = 0;
                     else 

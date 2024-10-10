@@ -2492,7 +2492,12 @@ public:
                 return true;
             }
             else
+            {
+                handler->PSendSysMessage("ERROR: NO XPRATE SET YET");
+                handler->SetSentErrorMessage(true);
                 return false;
+            }
+            return false;
         }
         
         Player* player = handler->GetSession()->GetPlayer();
