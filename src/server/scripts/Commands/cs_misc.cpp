@@ -2517,7 +2517,7 @@ public:
         stmt->setUInt32(1, newrate);
         stmt->setUInt32(2, newrate);
         CharacterDatabase.Execute(stmt);
-        handler->PSendSysMessage("New XP Rate: %s", std::to_string(newrate));
+        handler->PSendSysMessage("New XP Rate: %u", newrate);
         return true;
     }
 };
