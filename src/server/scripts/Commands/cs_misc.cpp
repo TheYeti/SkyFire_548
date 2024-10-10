@@ -2496,8 +2496,6 @@ public:
         }
         
         Player* player = handler->GetSession()->GetPlayer();
-        if (player->isPossessing())
-            return false;
 
         std::string argstr = (char*)args;
         int newrate = stoi(argstr);
