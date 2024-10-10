@@ -658,6 +658,6 @@ void CharacterDatabaseConnection::DoPrepareStatements()
     PrepareStatement(CHAR_UPD_BLACKMARKET_AUCTION, "UPDATE blackmarket_auctions SET currentBidder = ?, currentBid = ?, minIncrement = ?, numBids = ? WHERE auctionId = ?", CONNECTION_ASYNC);
 
     // Custom commands
-    PrepareStatement(CHAR_UPDATE_XPRATE, "INSERT INTO character_xprate(id, xprate) VALUES(?, ?) ON DUPLICATE KEY UPDATE xprate = ?");
+    PrepareStatement(CHAR_UPDATE_XPRATE, "INSERT INTO character_xprate(id, xprate) VALUES(?, ?) ON DUPLICATE KEY UPDATE xprate = ?", CONNECTION_ASYNC);
 }
 
