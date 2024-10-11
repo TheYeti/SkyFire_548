@@ -8,7 +8,7 @@
 #include "WorldPacket.h"
 #include "WorldSession.h"
 
-#define PLAYABLE_RACES_COUNT 15
+#define PLAYABLE_RACES_COUNT 17
 #define PLAYABLE_CLASSES_COUNT 11
 
 uint8 raceExpansion[PLAYABLE_RACES_COUNT][2] =
@@ -28,6 +28,8 @@ uint8 raceExpansion[PLAYABLE_RACES_COUNT][2] =
     { RACE_DWARF,             EXPANSION_CLASSIC             },
     { RACE_PANDAREN_ALLIANCE, EXPANSION_MISTS_OF_PANDARIA   },
     { RACE_PANDAREN_HORDE,    EXPANSION_MISTS_OF_PANDARIA   },
+    { RACE_MAGHAR_ORC,        EXPANSION_CATACLYSM           },
+    { RACE_DARKIRON_DWARF,    EXPANSION_CATACLYSM           },
 };
 
 uint8 classExpansion[PLAYABLE_CLASSES_COUNT][2] =

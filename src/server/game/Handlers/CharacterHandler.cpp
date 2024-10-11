@@ -2030,6 +2030,7 @@ void WorldSession::HandleCharFactionOrRaceChange(WorldPacket& recvData)
             case RACE_TROLL:
             case RACE_BLOODELF:
             case RACE_GOBLIN:
+            case RACE_MAGHAR_ORC:
                 team = TEAM_HORDE;
                 break;
             default:
