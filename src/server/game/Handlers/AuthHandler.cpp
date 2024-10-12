@@ -28,8 +28,8 @@ uint8 raceExpansion[PLAYABLE_RACES_COUNT][2] =
     { RACE_DWARF,             EXPANSION_CLASSIC             },
     { RACE_PANDAREN_ALLIANCE, EXPANSION_MISTS_OF_PANDARIA   },
     { RACE_PANDAREN_HORDE,    EXPANSION_MISTS_OF_PANDARIA   },
-    { RACE_MAGHARORC,         EXPANSION_CLASSIC             },
-    { RACE_DARKIRONDWARF,     EXPANSION_CLASSIC             },
+    { RACE_MAGHAR_ORC,        EXPANSION_CLASSIC             },
+    { RACE_DARKIRON_DWARF,    EXPANSION_CLASSIC             },
 };
 
 uint8 classExpansion[PLAYABLE_CLASSES_COUNT][2] =
