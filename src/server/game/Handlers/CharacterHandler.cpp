@@ -2030,7 +2030,7 @@ void WorldSession::HandleCharFactionOrRaceChange(WorldPacket& recvData)
             case RACE_TROLL:
             case RACE_BLOODELF:
             case RACE_GOBLIN:
-            case RACE_MAGHAR_ORC:
+            case RACE_MAGHARORC:
                 team = TEAM_HORDE;
                 break;
             default:
@@ -2056,14 +2056,14 @@ void WorldSession::HandleCharFactionOrRaceChange(WorldPacket& recvData)
         trans->Append(stmt);
 
         // Race specific languages
-        if (race != (RACE_ORC || RACE_MAGHAR_ORC) && race != RACE_HUMAN)
+        if (race != (RACE_ORC || RACE_MAGHARORC) && race != RACE_HUMAN)
         {
             stmt = CharacterDatabase.GetPreparedStatement(CHAR_INS_CHAR_SKILL_LANGUAGE);
             stmt->setUInt32(0, lowGuid);
 
             switch (race)
             {
-                case RACE_DARKIRON_DWARF:
+                case RACE_DARKIRONDWARF:
                 case RACE_DWARF:
                     stmt->setUInt16(1, 111);
                     break;
