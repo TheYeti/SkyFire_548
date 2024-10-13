@@ -104,19 +104,20 @@ enum Races
     //RACE_TUSKARR            = 17,
     //RACE_FOREST_TROLL       = 18,
     //RACE_TAUNKA             = 19,
+    RACE_MAGHARORC = 20,
+    RACE_DARKIRONDWARF = 21,
     //RACE_NORTHREND_SKELETON = 20,
     //RACE_ICE_TROLL          = 21,
     RACE_WORGEN = 22,
     //RACE_GILNEAN            = 23
     RACE_PANDAREN_NEUTRAL = 24,
     RACE_PANDAREN_ALLIANCE = 25,
-    RACE_PANDAREN_HORDE = 26,
-    RACE_MAGHARORC = 27,
-    RACE_DARKIRONDWARF = 28
+    RACE_PANDAREN_HORDE = 26
+    
 };
 
 // max+1 for player race
-#define MAX_RACES         29
+#define MAX_RACES         27
 
 #define RACEMASK_ALL_PLAYABLE \
     ((1<<(RACE_HUMAN-1))   |(1<<(RACE_ORC-1))          |(1<<(RACE_DWARF-1))   | \
