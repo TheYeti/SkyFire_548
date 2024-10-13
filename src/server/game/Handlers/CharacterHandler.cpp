@@ -2056,7 +2056,7 @@ void WorldSession::HandleCharFactionOrRaceChange(WorldPacket& recvData)
         trans->Append(stmt);
 
         // Race specific languages
-        if (race != (RACE_ORC || RACE_MAGHARORC) && race != RACE_HUMAN)
+        if (race != RACE_ORC && race != RACE_MAGHARORC && race != RACE_HUMAN)
         {
             stmt = CharacterDatabase.GetPreparedStatement(CHAR_INS_CHAR_SKILL_LANGUAGE);
             stmt->setUInt32(0, lowGuid);
